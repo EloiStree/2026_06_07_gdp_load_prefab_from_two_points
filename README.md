@@ -3,8 +3,8 @@
 > Load scene from two given points.
 
 
-Version Unity: https://github.com/EloiStree/2026_06_07_upm_load_prefab_from_two_points
-
+Version Unity: https://github.com/EloiStree/2026_06_07_upm_load_prefab_from_two_points   
+Workshop: https://github.com/EloiStree/2026_05_11_workshop_gaming_hello_xr  
 
 Add to not git project:
 ``` init
