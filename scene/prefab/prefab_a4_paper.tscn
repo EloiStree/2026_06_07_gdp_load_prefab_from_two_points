@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://myqnyksvedx1"]
+
+[ext_resource type="PackedScene" uid="uid://ce566dvg5ffx2" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_gizmo_3d.tscn" id="1_3xr3f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojyok"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3xr3f"]
+
+[node name="A4Paper" type="Node3D" unique_id=624036204]
+
+[node name="PaperMesh" type="MeshInstance3D" parent="." unique_id=2096163142]
+transform = Transform3D(0.21, 0, 0, 0, 0.001, 0, 0, 0, 0.297, 0.105, 0, -0.149)
+material_override = SubResource("StandardMaterial3D_ojyok")
+mesh = SubResource("BoxMesh_3xr3f")
+
+[node name="DownLeftCorner" type="Node3D" parent="." unique_id=613502956]
+
+[node name="TopRightCorner" type="Node3D" parent="." unique_id=1172889891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, 0, -0.297)
+
+[node name="Gizmo" parent="." unique_id=1759087548 instance=ExtResource("1_3xr3f")]

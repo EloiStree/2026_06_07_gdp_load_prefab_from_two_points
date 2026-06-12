@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bgtw7q8p2lop1"]
+
+[ext_resource type="PackedScene" uid="uid://myqnyksvedx1" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_a4_paper.tscn" id="1_3gg6q"]
+[ext_resource type="PackedScene" uid="uid://cd65o72j1115e" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursor_point.tscn" id="2_c5v5v"]
+[ext_resource type="PackedScene" uid="uid://cwrxqv3nv7uwm" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursor_following_controller.tscn" id="3_6jbbr"]
+[ext_resource type="Script" uid="uid://cgeh48isu57ji" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_set_and_emit_start_end_points.gd" id="4_mrkog"]
+
+[node name="DemoLoadPrefabFromTwoPoints" type="Node3D" unique_id=1311157045]
+
+[node name="PrefabA4PaperFrom" parent="." unique_id=624036204 instance=ExtResource("1_3gg6q")]
+
+[node name="PrefabA4PaperTo" parent="." unique_id=1885553689 instance=ExtResource("1_3gg6q")]
+transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.6159757, -0.3531289, -1.556849)
+
+[node name="CursorsToLoad" type="Node3D" parent="." unique_id=41476265 node_paths=PackedStringArray("start_anchor", "end_anchor", "cursor_anchor")]
+script = ExtResource("4_mrkog")
+start_anchor = NodePath("StartCursorPoint")
+end_anchor = NodePath("EndCursorPoint")
+cursor_anchor = NodePath("CursorFollowingController")
+metadata/_custom_type_script = "uid://cgeh48isu57ji"
+
+[node name="StartCursorPoint" parent="CursorsToLoad" unique_id=2140872081 instance=ExtResource("2_c5v5v")]
+transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.6159757, -0.3531289, -1.556849)
+
+[node name="EndCursorPoint" parent="CursorsToLoad" unique_id=1502451309 instance=ExtResource("2_c5v5v")]
+transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.7897725, -0.3531289, -1.6684116)
+
+[node name="CursorFollowingController" parent="CursorsToLoad" unique_id=1456707893 instance=ExtResource("3_6jbbr")]
+transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.6159757, -0.3531289, -1.556849)

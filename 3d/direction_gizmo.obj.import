@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhe8vxyv035gu"
+path="res://.godot/imported/direction_gizmo.obj-a2c8314843bbe004912da9c8685fe3be.mesh"
+
+[deps]
+
+files=["res://.godot/imported/direction_gizmo.obj-a2c8314843bbe004912da9c8685fe3be.mesh"]
+
+source_file="res://addons/2026_06_07_gdp_load_prefab_from_two_points/3d/direction_gizmo.obj"
+dest_files=["res://.godot/imported/direction_gizmo.obj-a2c8314843bbe004912da9c8685fe3be.mesh", "res://.godot/imported/direction_gizmo.obj-a2c8314843bbe004912da9c8685fe3be.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

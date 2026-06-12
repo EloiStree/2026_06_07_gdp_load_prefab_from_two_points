@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwrxqv3nv7uwm"]
+
+[ext_resource type="Script" uid="uid://cjtp6owgg37cp" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_follow_node3d.gd" id="1_rct0a"]
+[ext_resource type="PackedScene" uid="uid://cd65o72j1115e" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursor_point.tscn" id="2_rjkl5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rct0a"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="CursorFollowingController" type="Node3D" unique_id=1456707893 node_paths=PackedStringArray("what_to_move")]
+script = ExtResource("1_rct0a")
+what_to_move = NodePath(".")
+metadata/_custom_type_script = "uid://cjtp6owgg37cp"
+
+[node name="CursorCursorPoint" parent="." unique_id=2140872081 instance=ExtResource("2_rjkl5")]
+
+[node name="MeshInstance3D" parent="CursorCursorPoint" index="0" unique_id=1604299088]
+material_override = SubResource("StandardMaterial3D_rct0a")
+
+[editable path="CursorCursorPoint"]
