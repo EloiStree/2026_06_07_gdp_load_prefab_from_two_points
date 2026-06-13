@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://cqp1ps44iurd6"]
+
+[ext_resource type="PackedScene" uid="uid://myqnyksvedx1" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_a4_paper.tscn" id="1_j5gku"]
+[ext_resource type="PackedScene" uid="uid://batohs5lkrjjw" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursors_to_sted_end_vector.tscn" id="2_vr8tx"]
+[ext_resource type="Script" uid="uid://c8m4rab404it3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_relocate_node3d_to_start_end.gd" id="3_miose"]
+[ext_resource type="Script" uid="uid://d4g3gghgppr87" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_setup_xr.gd" id="4_miose"]
+[ext_resource type="Script" uid="uid://dn63pr1isf2j3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_xr_button_input_changed.gd" id="4_vr8tx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mrkog"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6uknn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_miose"]
+
+[node name="DemoLoadPrefabFromTwoPoints" type="Node3D" unique_id=1311157045]
+
+[node name="PrefabA4PaperFrom" parent="." unique_id=624036204 instance=ExtResource("1_j5gku")]
+
+[node name="PrefabA4PaperTo" parent="." unique_id=1885553689 instance=ExtResource("1_j5gku")]
+transform = Transform3D(0.791405, 0, -0.61129224, 0, 1, 0, 0.61129224, 0, 0.791405, 0.2886299, -0.3531289, -0.55962807)
+
+[node name="CursorsToLoad" parent="PrefabA4PaperTo" unique_id=261028072 instance=ExtResource("2_vr8tx")]
+transform = Transform3D(0.8415391, 0, -0.54019624, 0, 1, 0, 0.54019624, 0, 0.8415391, -1.7988613, 0.3531289, -0.26861238)
+
+[node name="StartCursorPoint" parent="PrefabA4PaperTo/CursorsToLoad" index="0" unique_id=2140872081]
+transform = Transform3D(4.2076955, 0, 2.7009811, 0, 5, 0, -2.7009811, 0, 4.2076955, 1.658842, -0.3531289, -0.7477486)
+
+[node name="EndCursorPoint" parent="PrefabA4PaperTo/CursorsToLoad" index="1" unique_id=1184612487]
+transform = Transform3D(4.2076955, 0, 2.7009811, 0, 5, 0, -2.7009811, 0, 4.2076955, 1.8355172, -0.31548598, -0.8600884)
+
+[node name="CursorFollowingController" parent="PrefabA4PaperTo/CursorsToLoad" index="2" unique_id=1456707893 node_paths=PackedStringArray("what_to_follow")]
+transform = Transform3D(4.2076955, 0, 2.7009811, 0, 5, 0, -2.7009811, 0, 4.2076955, 2.0864096, 0.44534343, -0.5224588)
+what_to_follow = NodePath("../../../XROrigin3D/XRController3DRight/MeshInstance3D2")
+
+[node name="Level" type="Node3D" parent="." unique_id=32044034]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level" unique_id=1470223904]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.08186597, 0.03024, -0.13666224)
+mesh = SubResource("BoxMesh_mrkog")
+
+[node name="PrefabA4PaperFrom2" parent="Level" unique_id=320851109 instance=ExtResource("1_j5gku")]
+
+[node name="SELoadRelocateNodeToStartEnd" type="Node3D" parent="." unique_id=1114727389 node_paths=PackedStringArray("what_to_relocate")]
+script = ExtResource("3_miose")
+what_to_relocate = NodePath("../Level")
+metadata/_custom_type_script = "uid://c8m4rab404it3"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2001556963]
+
+[node name="ButtonToPoints" type="Button" parent="CanvasLayer" unique_id=1877383408]
+anchors_preset = -1
+anchor_right = 0.076000005
+anchor_bottom = 0.054382723
+offset_right = -0.55200195
+offset_bottom = -0.2400055
+text = "Move
+To Points"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonToZero" type="Button" parent="CanvasLayer" unique_id=847478919]
+anchors_preset = -1
+anchor_top = 0.09104938
+anchor_right = 0.076000005
+anchor_bottom = 0.1747531
+offset_right = -0.55200195
+offset_bottom = -0.2400055
+text = "Move
+To Zero"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=1584050811]
+anchors_preset = -1
+anchor_left = 0.080729164
+anchor_right = 0.14978473
+anchor_bottom = 0.054382723
+offset_right = -0.55200195
+offset_bottom = -0.2400055
+text = "Random
+Points"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1256239371]
+anchors_preset = -1
+anchor_left = 0.18400002
+anchor_top = 0.008
+anchor_right = 0.84800005
+anchor_bottom = 0.30600002
+offset_left = 0.031982422
+offset_top = -0.18400002
+offset_right = 0.10394287
+offset_bottom = -0.28800964
+text = "Example of how you can relocate a level just with two points, a rotation and a translation."
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1734791743]
+transform = Transform3D(1, 0, 0, 0, 0.9628663, 0.2699787, 0, -0.2699787, 0.9628663, 0.62561506, 0.32426727, 0.45792264)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1933583499]
+
+[node name="SELoadSetupXR" type="Node" parent="XROrigin3D" unique_id=1849787026]
+script = ExtResource("4_miose")
+metadata/_custom_type_script = "uid://d4g3gghgppr87"
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1393372618]
+
+[node name="XRController3DLeft" type="XRController3D" parent="XROrigin3D" unique_id=483995694]
+tracker = &"left_hand"
+
+[node name="SELoadXrButtonInputChanged" type="Node" parent="XROrigin3D/XRController3DLeft" unique_id=1890452494 node_paths=PackedStringArray("controller_to_observe")]
+script = ExtResource("4_vr8tx")
+controller_to_observe = NodePath("..")
+metadata/_custom_type_script = "uid://dn63pr1isf2j3"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3DLeft" unique_id=1137331964]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = SubResource("BoxMesh_6uknn")
+
+[node name="XRController3DRight" type="XRController3D" parent="XROrigin3D" unique_id=1467589614]
+tracker = &"right_hand"
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="XROrigin3D/XRController3DRight" unique_id=1323325557]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = SubResource("BoxMesh_6uknn")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=922198178]
+transform = Transform3D(0.89637816, -0.117643856, 0.42739466, 0, 0.9641417, 0.26538786, -0.4432903, -0.23788787, 0.8642355, 0, 1.3826663, -3.0709007)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=709497141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.0709007)
+mesh = SubResource("BoxMesh_miose")
+
+[connection signal="on_start_end_points_emitted" from="PrefabA4PaperTo/CursorsToLoad" to="SELoadRelocateNodeToStartEnd" method="relocate_node_from_start_end_points"]
+[connection signal="button_down" from="CanvasLayer/ButtonToPoints" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
+[connection signal="button_down" from="CanvasLayer/ButtonToZero" to="PrefabA4PaperTo/CursorsToLoad" method="emit_zero_origine_points_in_signal"]
+[connection signal="button_down" from="CanvasLayer/Button2" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
+[connection signal="button_down" from="CanvasLayer/Button2" to="PrefabA4PaperTo/CursorsToLoad" method="set_random_positions_around_1_meter"]
+[connection signal="on_button_down" from="XROrigin3D/XRController3DLeft/SELoadXrButtonInputChanged" to="PrefabA4PaperTo/CursorsToLoad" method="set_start_anchor_with_cursor"]
+[connection signal="on_button_up" from="XROrigin3D/XRController3DLeft/SELoadXrButtonInputChanged" to="PrefabA4PaperTo/CursorsToLoad" method="set_end_anchor_with_cursor"]
+[connection signal="on_button_up" from="XROrigin3D/XRController3DLeft/SELoadXrButtonInputChanged" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
+
+[editable path="PrefabA4PaperTo/CursorsToLoad"]

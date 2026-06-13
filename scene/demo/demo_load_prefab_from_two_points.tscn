@@ -20,7 +20,7 @@ transform = Transform3D(0.8415391, 0, -0.54019624, 0, 1, 0, 0.54019624, 0, 0.841
 transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.658842, -0.3531289, -0.7477486)
 
 [node name="EndCursorPoint" parent="PrefabA4PaperTo/CursorsToLoad" index="1" unique_id=1184612487]
-transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.8433552, -0.3531289, -0.8539528)
+transform = Transform3D(0.8415391, 0, 0.5401963, 0, 1, 0, -0.5401963, 0, 0.8415391, 1.8355172, -0.31548598, -0.8600884)
 
 [node name="Level" type="Node3D" parent="." unique_id=32044034]
 
@@ -68,6 +68,18 @@ offset_bottom = -0.2400055
 text = "Random
 Points"
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1256239371]
+anchors_preset = -1
+anchor_left = 0.18400002
+anchor_top = 0.008
+anchor_right = 0.84800005
+anchor_bottom = 0.30600002
+offset_left = 0.031982422
+offset_top = -0.18400002
+offset_right = 0.10394287
+offset_bottom = -0.28800964
+text = "Example of how you can relocate a level just with two points, a rotation and a translation"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1734791743]
 transform = Transform3D(1, 0, 0, 0, 0.9628663, 0.2699787, 0, -0.2699787, 0.9628663, 0.62561506, 0.32426727, 0.45792264)

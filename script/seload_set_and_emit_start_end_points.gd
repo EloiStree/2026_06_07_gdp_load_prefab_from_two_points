@@ -9,7 +9,7 @@ signal on_start_end_points_emitted(start_point:Vector3,end_point:Vector3)
 
 func emit_current_points_in_signal():
 	var start := start_anchor.global_position
-	var end := start_anchor.global_position
+	var end := end_anchor.global_position
 	on_start_end_points_emitted.emit(start,end)
 
 func emit_zero_origine_points_in_signal():
