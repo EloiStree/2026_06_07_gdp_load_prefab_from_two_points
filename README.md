@@ -2,6 +2,8 @@
 
 > Load scene from two given points.
 
+<img width="991" height="282" alt="image" src="https://github.com/user-attachments/assets/5446ea1e-83ad-480f-ad99-53fd86703e10" />
+
 
 Version Unity: https://github.com/EloiStree/2026_06_07_upm_load_prefab_from_two_points   
 Workshop: https://github.com/EloiStree/2026_05_11_workshop_gaming_hello_xr  
