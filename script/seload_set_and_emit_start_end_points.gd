@@ -11,6 +11,11 @@ func emit_current_points_in_signal():
 	var start := start_anchor.global_position
 	var end := start_anchor.global_position
 	on_start_end_points_emitted.emit(start,end)
+
+func emit_zero_origine_points_in_signal():
+	var start := Vector3.ZERO
+	var end := Vector3.RIGHT*0.21
+	on_start_end_points_emitted.emit(start,end)
 		
 func set_start_anchor_with_cursor():
 	start_anchor.position = cursor_anchor.position

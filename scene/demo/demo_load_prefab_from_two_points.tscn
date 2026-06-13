@@ -1,29 +1,84 @@
 [gd_scene format=3 uid="uid://bgtw7q8p2lop1"]
 
 [ext_resource type="PackedScene" uid="uid://myqnyksvedx1" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_a4_paper.tscn" id="1_3gg6q"]
-[ext_resource type="PackedScene" uid="uid://cd65o72j1115e" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursor_point.tscn" id="2_c5v5v"]
-[ext_resource type="PackedScene" uid="uid://cwrxqv3nv7uwm" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursor_following_controller.tscn" id="3_6jbbr"]
-[ext_resource type="Script" uid="uid://cgeh48isu57ji" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_set_and_emit_start_end_points.gd" id="4_mrkog"]
+[ext_resource type="Script" uid="uid://c8m4rab404it3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_relocate_node3d_to_start_end.gd" id="2_6jbbr"]
+[ext_resource type="PackedScene" uid="uid://batohs5lkrjjw" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursors_to_sted_end_vector.tscn" id="2_c5v5v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mrkog"]
 
 [node name="DemoLoadPrefabFromTwoPoints" type="Node3D" unique_id=1311157045]
 
 [node name="PrefabA4PaperFrom" parent="." unique_id=624036204 instance=ExtResource("1_3gg6q")]
 
 [node name="PrefabA4PaperTo" parent="." unique_id=1885553689 instance=ExtResource("1_3gg6q")]
-transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.6159757, -0.3531289, -1.556849)
+transform = Transform3D(0.791405, 0, -0.61129224, 0, 1, 0, 0.61129224, 0, 0.791405, 0.2886299, -0.3531289, -0.55962807)
 
-[node name="CursorsToLoad" type="Node3D" parent="." unique_id=41476265 node_paths=PackedStringArray("start_anchor", "end_anchor", "cursor_anchor")]
-script = ExtResource("4_mrkog")
-start_anchor = NodePath("StartCursorPoint")
-end_anchor = NodePath("EndCursorPoint")
-cursor_anchor = NodePath("CursorFollowingController")
-metadata/_custom_type_script = "uid://cgeh48isu57ji"
+[node name="CursorsToLoad" parent="PrefabA4PaperTo" unique_id=261028072 instance=ExtResource("2_c5v5v")]
+transform = Transform3D(0.8415391, 0, -0.54019624, 0, 1, 0, 0.54019624, 0, 0.8415391, -1.7988613, 0.3531289, -0.26861238)
 
-[node name="StartCursorPoint" parent="CursorsToLoad" unique_id=2140872081 instance=ExtResource("2_c5v5v")]
-transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.6159757, -0.3531289, -1.556849)
+[node name="StartCursorPoint" parent="PrefabA4PaperTo/CursorsToLoad" index="0" unique_id=2140872081]
+transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.658842, -0.3531289, -0.7477486)
 
-[node name="EndCursorPoint" parent="CursorsToLoad" unique_id=1502451309 instance=ExtResource("2_c5v5v")]
-transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.7897725, -0.3531289, -1.6684116)
+[node name="EndCursorPoint" parent="PrefabA4PaperTo/CursorsToLoad" index="1" unique_id=1184612487]
+transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.8433552, -0.3531289, -0.8539528)
 
-[node name="CursorFollowingController" parent="CursorsToLoad" unique_id=1456707893 instance=ExtResource("3_6jbbr")]
-transform = Transform3D(0.8415391, 0, 0.54019624, 0, 1, 0, -0.54019624, 0, 0.8415391, 1.6159757, -0.3531289, -1.556849)
+[node name="Level" type="Node3D" parent="." unique_id=32044034]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level" unique_id=1470223904]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.08186597, 0.03024, -0.13666224)
+mesh = SubResource("BoxMesh_mrkog")
+
+[node name="PrefabA4PaperFrom2" parent="Level" unique_id=320851109 instance=ExtResource("1_3gg6q")]
+
+[node name="SELoadRelocateNodeToStartEnd" type="Node3D" parent="." unique_id=1114727389 node_paths=PackedStringArray("what_to_relocate")]
+script = ExtResource("2_6jbbr")
+what_to_relocate = NodePath("../Level")
+metadata/_custom_type_script = "uid://c8m4rab404it3"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2001556963]
+
+[node name="ButtonToPoints" type="Button" parent="CanvasLayer" unique_id=1877383408]
+anchors_preset = -1
+anchor_right = 0.076000005
+anchor_bottom = 0.054382723
+offset_right = -0.55200195
+offset_bottom = -0.2400055
+text = "Move
+To Points"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonToZero" type="Button" parent="CanvasLayer" unique_id=847478919]
+anchors_preset = -1
+anchor_top = 0.09104938
+anchor_right = 0.076000005
+anchor_bottom = 0.1747531
+offset_right = -0.55200195
+offset_bottom = -0.2400055
+text = "Move
+To Zero"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=1584050811]
+anchors_preset = -1
+anchor_left = 0.080729164
+anchor_right = 0.14978473
+anchor_bottom = 0.054382723
+offset_right = -0.55200195
+offset_bottom = -0.2400055
+text = "Random
+Points"
+metadata/_edit_use_anchors_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1734791743]
+transform = Transform3D(1, 0, 0, 0, 0.9628663, 0.2699787, 0, -0.2699787, 0.9628663, 0.62561506, 0.32426727, 0.45792264)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2056439559]
+transform = Transform3D(1, 0, 0, 0, 0.9628663, 0.2699787, 0, -0.2699787, 0.9628663, 0.33996528, 0.32426727, 0.45792264)
+
+[connection signal="on_start_end_points_emitted" from="PrefabA4PaperTo/CursorsToLoad" to="SELoadRelocateNodeToStartEnd" method="relocate_node_from_start_end_points"]
+[connection signal="button_down" from="CanvasLayer/ButtonToPoints" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
+[connection signal="button_down" from="CanvasLayer/ButtonToZero" to="PrefabA4PaperTo/CursorsToLoad" method="emit_zero_origine_points_in_signal"]
+[connection signal="button_down" from="CanvasLayer/Button2" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
+[connection signal="button_down" from="CanvasLayer/Button2" to="PrefabA4PaperTo/CursorsToLoad" method="set_random_positions_around_1_meter"]
+
+[editable path="PrefabA4PaperTo/CursorsToLoad"]
