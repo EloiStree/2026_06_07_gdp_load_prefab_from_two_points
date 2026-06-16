@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dtglvah5u7ggv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cyvst"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c3r8f"]
+
+[node name="PrefabSeloadIkeaTable55Cm" type="Node3D" unique_id=159101039]
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=993659238]
+transform = Transform3D(0.55, 0, 0, 0, 0.05, 0, 0, 0, 0.55, 0.275, -0.025, -0.275)
+mesh = SubResource("BoxMesh_cyvst")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table" unique_id=1599930414]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" unique_id=1479636115]
+shape = SubResource("BoxShape3D_c3r8f")
+
+[node name="Feet" type="MeshInstance3D" parent="." unique_id=1459303026]
+transform = Transform3D(0.05, 0, 0, 0, 0.4, 0, 0, 0, 0.05, 0.025, -0.25, -0.025)
+mesh = SubResource("BoxMesh_cyvst")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Feet" unique_id=579523148]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Feet/StaticBody3D" unique_id=1499918799]
+shape = SubResource("BoxShape3D_c3r8f")
+
+[node name="Feet2" type="MeshInstance3D" parent="." unique_id=1577196452]
+transform = Transform3D(0.05, 0, 0, 0, 0.4, 0, 0, 0, 0.05, 0.5247755, -0.25, -0.025)
+mesh = SubResource("BoxMesh_cyvst")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Feet2" unique_id=957743999]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Feet2/StaticBody3D" unique_id=38160923]
+shape = SubResource("BoxShape3D_c3r8f")
+
+[node name="Feet3" type="MeshInstance3D" parent="." unique_id=1005053693]
+transform = Transform3D(0.05, 0, 0, 0, 0.4, 0, 0, 0, 0.05, 0.025, -0.25, -0.52401423)
+mesh = SubResource("BoxMesh_cyvst")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Feet3" unique_id=751048384]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Feet3/StaticBody3D" unique_id=1091010446]
+shape = SubResource("BoxShape3D_c3r8f")
+
+[node name="Feet4" type="MeshInstance3D" parent="." unique_id=410673069]
+transform = Transform3D(0.05, 0, 0, 0, 0.4, 0, 0, 0, 0.05, 0.5247755, -0.25, -0.52401423)
+mesh = SubResource("BoxMesh_cyvst")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Feet4" unique_id=158960106]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Feet4/StaticBody3D" unique_id=1581711972]
+shape = SubResource("BoxShape3D_c3r8f")
+
+[node name="StartPoint" type="Node3D" parent="." unique_id=661202736]
+
+[node name="EndPoint" type="Node3D" parent="." unique_id=864555363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)

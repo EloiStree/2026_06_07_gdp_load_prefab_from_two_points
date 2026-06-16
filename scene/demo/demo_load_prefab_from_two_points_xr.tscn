@@ -2,13 +2,33 @@
 
 [ext_resource type="PackedScene" uid="uid://myqnyksvedx1" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_a4_paper.tscn" id="1_j5gku"]
 [ext_resource type="PackedScene" uid="uid://batohs5lkrjjw" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursors_to_sted_end_vector.tscn" id="2_vr8tx"]
-[ext_resource type="Script" uid="uid://c8m4rab404it3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_relocate_node3d_to_start_end.gd" id="3_miose"]
+[ext_resource type="Script" uid="uid://c8m4rab404it3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_relocate_node3d_to_start_end_resource.gd" id="3_miose"]
 [ext_resource type="Script" uid="uid://d4g3gghgppr87" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_setup_xr.gd" id="4_miose"]
+[ext_resource type="Script" uid="uid://cppigsgdi7sy5" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_create_scene_from_start_end_distance.gd" id="4_pb5i6"]
 [ext_resource type="Script" uid="uid://dn63pr1isf2j3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_xr_button_input_changed.gd" id="4_vr8tx"]
+[ext_resource type="Script" uid="uid://cr5u8ruagv00x" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_scene_link_to_distance_threshold.gd" id="5_ncrmg"]
+[ext_resource type="PackedScene" uid="uid://c6oibbyxr5xs5" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/3d/MetaQuestTouchPlus_Right/MetaQuestTouchPlus_Right.fbx" id="6_7htfv"]
+[ext_resource type="PackedScene" uid="uid://dtglvah5u7ggv" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/scene_to_load/prefab_seload_ikea_table_55cm.tscn" id="6_w0lno"]
+[ext_resource type="Script" uid="uid://c7tbmvb0ycu1c" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_group_of_scene_distance_threshold_resource.gd" id="7_l5uvq"]
+[ext_resource type="Texture2D" uid="uid://rxo3qk4bxayp" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/3d/MetaQuestTouchPlus_Right/MetaQuestTouchPlus_right_BaseColor.png" id="7_pb5i6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mrkog"]
 
+[sub_resource type="Resource" id="Resource_22xpl"]
+script = ExtResource("5_ncrmg")
+_scene_to_create = ExtResource("6_w0lno")
+_distance_expected = 0.55
+metadata/_custom_type_script = "uid://cr5u8ruagv00x"
+
+[sub_resource type="Resource" id="Resource_bc03k"]
+script = ExtResource("7_l5uvq")
+_scenes_group = Array[ExtResource("5_ncrmg")]([SubResource("Resource_22xpl")])
+metadata/_custom_type_script = "uid://c7tbmvb0ycu1c"
+
 [sub_resource type="BoxMesh" id="BoxMesh_6uknn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cus51"]
+albedo_texture = ExtResource("7_pb5i6")
 
 [sub_resource type="BoxMesh" id="BoxMesh_miose"]
 
@@ -20,13 +40,12 @@
 transform = Transform3D(0.791405, 0, -0.61129224, 0, 1, 0, 0.61129224, 0, 0.791405, 0.2886299, -0.3531289, -0.55962807)
 
 [node name="CursorsToLoad" parent="PrefabA4PaperTo" unique_id=261028072 instance=ExtResource("2_vr8tx")]
-transform = Transform3D(0.8415391, 0, -0.54019624, 0, 1, 0, 0.54019624, 0, 0.8415391, -1.7988613, 0.3531289, -0.26861238)
 
 [node name="StartCursorPoint" parent="PrefabA4PaperTo/CursorsToLoad" index="0" unique_id=2140872081]
-transform = Transform3D(4.2076955, 0, 2.7009811, 0, 5, 0, -2.7009811, 0, 4.2076955, 1.658842, -0.3531289, -0.7477486)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="EndCursorPoint" parent="PrefabA4PaperTo/CursorsToLoad" index="1" unique_id=1184612487]
-transform = Transform3D(4.2076955, 0, 2.7009811, 0, 5, 0, -2.7009811, 0, 4.2076955, 1.8355172, -0.31548598, -0.8600884)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.55, 0, 0)
 
 [node name="CursorFollowingController" parent="PrefabA4PaperTo/CursorsToLoad" index="2" unique_id=1456707893 node_paths=PackedStringArray("what_to_follow")]
 transform = Transform3D(4.2076955, 0, 2.7009811, 0, 5, 0, -2.7009811, 0, 4.2076955, 2.0864096, 0.44534343, -0.5224588)
@@ -44,6 +63,11 @@ mesh = SubResource("BoxMesh_mrkog")
 script = ExtResource("3_miose")
 what_to_relocate = NodePath("../Level")
 metadata/_custom_type_script = "uid://c8m4rab404it3"
+
+[node name="SELoadCreateSceneFromStartEndDistance" type="Node3D" parent="." unique_id=1455709731]
+script = ExtResource("4_pb5i6")
+_scenes_to_create = SubResource("Resource_bc03k")
+metadata/_custom_type_script = "uid://cppigsgdi7sy5"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2001556963]
 
@@ -118,8 +142,22 @@ mesh = SubResource("BoxMesh_6uknn")
 tracker = &"right_hand"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="XROrigin3D/XRController3DRight" unique_id=1323325557]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0.004615195, -0.07214195, 0.06569452)
 mesh = SubResource("BoxMesh_6uknn")
+
+[node name="MetaQuestTouchPlus_Right" parent="XROrigin3D/XRController3DRight" unique_id=1646824560 instance=ExtResource("6_7htfv")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="right_laser_begin" parent="XROrigin3D/XRController3DRight/MetaQuestTouchPlus_Right/RootNode2/Skeleton3D" parent_id_path=PackedInt32Array(1646824560, 1734946330) index="0" unique_id=788167941]
+bone_idx = 0
+
+[node name="oculus_controller_r_MeshX" parent="XROrigin3D/XRController3DRight/MetaQuestTouchPlus_Right/RootNode2/Skeleton3D" parent_id_path=PackedInt32Array(1646824560, 1734946330) index="1" unique_id=1026493927]
+material_override = SubResource("StandardMaterial3D_cus51")
+
+[node name="OpenXRHandLeft" type="OpenXRHand" parent="XROrigin3D" unique_id=847672643]
+
+[node name="OpenXRHandRight" type="OpenXRHand" parent="XROrigin3D" unique_id=369233475]
+hand = 1
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=922198178]
 transform = Transform3D(0.89637816, -0.117643856, 0.42739466, 0, 0.9641417, 0.26538786, -0.4432903, -0.23788787, 0.8642355, 0, 1.3826663, -3.0709007)
@@ -129,6 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.0709007)
 mesh = SubResource("BoxMesh_miose")
 
 [connection signal="on_start_end_points_emitted" from="PrefabA4PaperTo/CursorsToLoad" to="SELoadRelocateNodeToStartEnd" method="relocate_node_from_start_end_points"]
+[connection signal="on_start_end_points_emitted" from="PrefabA4PaperTo/CursorsToLoad" to="SELoadCreateSceneFromStartEndDistance" method="create_scene_from_start_end_points"]
 [connection signal="button_down" from="CanvasLayer/ButtonToPoints" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
 [connection signal="button_down" from="CanvasLayer/ButtonToZero" to="PrefabA4PaperTo/CursorsToLoad" method="emit_zero_origine_points_in_signal"]
 [connection signal="button_down" from="CanvasLayer/Button2" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
@@ -138,3 +177,4 @@ mesh = SubResource("BoxMesh_miose")
 [connection signal="on_button_up" from="XROrigin3D/XRController3DLeft/SELoadXrButtonInputChanged" to="PrefabA4PaperTo/CursorsToLoad" method="emit_current_points_in_signal"]
 
 [editable path="PrefabA4PaperTo/CursorsToLoad"]
+[editable path="XROrigin3D/XRController3DRight/MetaQuestTouchPlus_Right"]

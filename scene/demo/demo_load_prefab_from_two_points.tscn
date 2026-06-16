@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgtw7q8p2lop1"]
 
 [ext_resource type="PackedScene" uid="uid://myqnyksvedx1" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_a4_paper.tscn" id="1_3gg6q"]
-[ext_resource type="Script" uid="uid://c8m4rab404it3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_relocate_node3d_to_start_end.gd" id="2_6jbbr"]
+[ext_resource type="Script" uid="uid://c8m4rab404it3" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/script/seload_relocate_node3d_to_start_end_resource.gd" id="2_6jbbr"]
 [ext_resource type="PackedScene" uid="uid://batohs5lkrjjw" path="res://addons/2026_06_07_gdp_load_prefab_from_two_points/scene/prefab/prefab_cursors_to_sted_end_vector.tscn" id="2_c5v5v"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mrkog"]
