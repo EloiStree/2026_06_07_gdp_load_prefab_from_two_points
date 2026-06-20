@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://blt3pmnqqvoyw"
 path.s3tc="res://.godot/imported/batteryIndicatorTexture32.png-85122a047f705787308c646d6d1f9ce9.s3tc.ctex"
-path.etc2="res://.godot/imported/batteryIndicatorTexture32.png-85122a047f705787308c646d6d1f9ce9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/2026_06_07_gdp_load_prefab_from_two_points/3d/MetaQuestTouchPlus_Right/batteryIndicatorTexture32.png"
-dest_files=["res://.godot/imported/batteryIndicatorTexture32.png-85122a047f705787308c646d6d1f9ce9.s3tc.ctex", "res://.godot/imported/batteryIndicatorTexture32.png-85122a047f705787308c646d6d1f9ce9.etc2.ctex"]
+dest_files=["res://.godot/imported/batteryIndicatorTexture32.png-85122a047f705787308c646d6d1f9ce9.s3tc.ctex"]
 
 [params]
 
