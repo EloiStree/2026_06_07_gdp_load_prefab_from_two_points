@@ -1,3 +1,11 @@
+**Add to a git project:**
+```
+git submodule add https://github.com/EloiStree/2026_06_07_gdp_load_prefab_from_two_points
+.git addons/2026_06_07_gdp_load_prefab_from_two_points
+
+```
+
+
 # 2026_06_07_gdp_load_prefab_from_two_points
 
 > Load scene from two given points.
